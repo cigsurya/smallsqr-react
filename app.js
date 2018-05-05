@@ -9,9 +9,9 @@ var PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.static(path.join(__dirname, 'bower_components')));
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname, 'build/index.html'));
-// });
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
+});
 
 app.get('/v1/ab7820028322/uploads/*', function(req, res) {
     var fileName = req.url.substr(req.url.lastIndexOf('/'));

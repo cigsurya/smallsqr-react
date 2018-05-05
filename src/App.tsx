@@ -1,4 +1,6 @@
+import axios from 'axios';
 import * as React from 'react';
+import FileDownload from 'react-file-download';
 import './App.css';
 import FileUploader from './components/FileUploader';
 
@@ -10,6 +12,12 @@ class App extends React.Component {
   //     return "";
   //   }
   // }
+  public downloadHandler() {
+    const fileName: string = '1.sqr';
+    axios.get('/v1/ab7820028322/uploads/'+fileName).then((response) => {
+      FileDownload(response.data, 'output.sqr');
+    });
+  }
   public render() {
     return (
         <div className="container">
@@ -24,7 +32,7 @@ class App extends React.Component {
                   <br/>
                   <br/>
                   <div>
-                    <button className="btn btn-success btn-lg" id="downloadBtn">Download</button>
+                  <button className="btn btn-success btn-lg" id="downloadBtn" onClick={this.downloadHandler}>Download</button>
                   </div>
                 </div>
               </div>

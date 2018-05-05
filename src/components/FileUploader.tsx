@@ -15,7 +15,6 @@ class FileUploader extends React.Component {
         // For a full list of possible configurations,
         // please consult http://www.dropzonejs.com/#configuration
         this.djsConfig = {
-            acceptedFiles: "sqr, zip",
             addRemoveLinks: true
         };
 
